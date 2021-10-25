@@ -1,0 +1,15 @@
+<button class="btn btn-primary" (click)="toggleDisplayDetails()">
+  Display Details
+</button>
+<p *ngIf="displayDetails">Product Details : GL552vw</p>
+<div>
+  <ul>
+    <li
+      *ngFor="let n of displayLog; let i = index"
+      [ngStyle]="{ backgroundColor: i >= 5 ? 'blue' : '' }"
+      [ngClass]="{ 'white-text': i >= 5 }"
+    >
+      Log Timestamp {{ n }}
+    </li>
+  </ul>
+</div>
