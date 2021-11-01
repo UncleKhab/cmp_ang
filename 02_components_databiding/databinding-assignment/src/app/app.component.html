@@ -1,0 +1,10 @@
+<div class="container">
+  <app-game-control
+    (gameStarted)="gameStarted($event)"
+    (gameStoped)="gameStoped($event)"
+  ></app-game-control>
+  <div *ngFor="let element of allNumbers">
+    <app-odd *ngIf="element % 2 !== 0" [value]="element"></app-odd>
+    <app-even *ngIf="element % 2 === 0" [value]="element"></app-even>
+  </div>
+</div>
