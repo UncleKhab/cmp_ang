@@ -8,11 +8,11 @@ import { CounterService } from "./counter.service";
 })
 export class AppComponent implements OnInit {
   changesCounter: number;
-  constructor(private counterService: CounterService) {
+  constructor(private counterService: CounterService) {}
+  ngOnInit() {
     this.changesCounter = this.counterService.counter;
     this.counterService.counterUpdated.subscribe(
-      (counter: number) => (this.changesCounter = counter)
+      () => (this.changesCounter = this.counterService.counter)
     );
   }
-  ngOnInit() {}
 }

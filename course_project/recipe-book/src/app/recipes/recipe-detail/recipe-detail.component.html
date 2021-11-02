@@ -28,7 +28,11 @@
         "
         [appDropdown]="displayDropdown"
       >
-        <li><a class="dropdown-item" href="#">To Shopping List</a></li>
+        <li>
+          <a class="dropdown-item" href="#" (click)="toShoppingList()"
+            >To Shopping List</a
+          >
+        </li>
         <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
         <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
       </ul>
@@ -39,5 +43,11 @@
   <div class="col-xs-12">{{ recipe.description }}</div>
 </div>
 <div class="row">
-  <div class="col-xs-12">Ingredients</div>
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+        {{ ingredient.name }} - ({{ ingredient.amount }})
+      </li>
+    </ul>
+  </div>
 </div>
