@@ -4,10 +4,18 @@
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
-        <a class="nav-link active" href="#" (click)="onSelect('recipes')"
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          href="#"
+          routerLink="recipes"
           >Recipes</a
         >
-        <a class="nav-link" href="#" (click)="onSelect('shoppingList')"
+        <a
+          class="nav-link"
+          href="#"
+          routerLink="shopping-list"
+          routerLinkActive="active"
           >Shopping List</a
         >
       </ul>
@@ -15,7 +23,6 @@
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            href="#"
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
@@ -26,11 +33,16 @@
           </a>
           <ul
             class="dropdown-menu"
+            style="cursor: pointer"
             aria-labelledby="navbarDropdown"
             [appDropdown]="displayDropdown"
           >
-            <li><a class="dropdown-item" href="#">Save Data</a></li>
-            <li><a class="dropdown-item" href="#">Fetch Data</a></li>
+            <li>
+              <a class="dropdown-item" style="cursor: pointer">Save Data</a>
+            </li>
+            <li>
+              <a class="dropdown-item" style="cursor: pointer">Fetch Data</a>
+            </li>
           </ul>
         </li>
       </ul>

@@ -29,12 +29,24 @@
         [appDropdown]="displayDropdown"
       >
         <li>
-          <a class="dropdown-item" href="#" (click)="toShoppingList()"
+          <a
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="toShoppingList()"
             >To Shopping List</a
           >
         </li>
-        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+        <li>
+          <a
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onEditRecipe()"
+            >Edit Recipe</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" style="cursor: pointer">Delete Recipe</a>
+        </li>
       </ul>
     </div>
   </div>
