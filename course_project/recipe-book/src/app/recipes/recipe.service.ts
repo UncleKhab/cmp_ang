@@ -8,22 +8,27 @@ import { Recipe } from './recipe.model';
 export class RecipeService {
   notifyRecipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Schnitzel',
-      'Best tender chicken schnitzel, coming from heaven!',
-      'https://bit.ly/3nXcREm',
-      [new Ingredient('Chicken', 1), new Ingredient('French Fries', 21)]
-    ),
-    new Recipe(
-      'Greek Flatbread',
-      'Greek Flatbread for your next Gyros or something',
-      'https://bzfd.it/3wd1con',
-      [new Ingredient('Beef', 1), new Ingredient('Buns', 1)]
-    ),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Schnitzel',
+  //     'Best tender chicken schnitzel, coming from heaven!',
+  //     'https://bit.ly/3nXcREm',
+  //     [new Ingredient('Chicken', 1), new Ingredient('French Fries', 21)]
+  //   ),
+  //   new Recipe(
+  //     'Greek Flatbread',
+  //     'Greek Flatbread for your next Gyros or something',
+  //     'https://bzfd.it/3wd1con',
+  //     [new Ingredient('Beef', 1), new Ingredient('Buns', 1)]
+  //   ),
+  // ];
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService) {}
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.notifyRecipesChanged.next(this.recipes.slice());
+  }
   getRecipes() {
     return this.recipes.slice();
   }
