@@ -7,19 +7,31 @@
         <a
           class="nav-link"
           routerLinkActive="active"
-          href="#"
           routerLink="recipes"
-          >Recipes</a
+          *ngIf="isAuthenticated"
         >
+          Recipes
+        </a>
         <a
           class="nav-link"
-          href="#"
-          routerLink="shopping-list"
+          routerLink="auth"
           routerLinkActive="active"
-          >Shopping List</a
+          *ngIf="!isAuthenticated"
         >
+          Authenticate
+        </a>
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          routerLink="shopping-list"
+        >
+          Shopping List
+        </a>
       </ul>
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" *ngIf="isAuthenticated">
+        <a class="nav-link" style="cursor: pointer" (click)="onLogout()"
+          >Logout</a
+        >
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
@@ -42,16 +54,18 @@
                 class="dropdown-item"
                 style="cursor: pointer"
                 (click)="onSaveData()"
-                >Save Data</a
               >
+                Save Data
+              </a>
             </li>
             <li>
               <a
                 class="dropdown-item"
                 style="cursor: pointer"
                 (click)="onFetchData()"
-                >Fetch Data</a
               >
+                Fetch Data
+              </a>
             </li>
           </ul>
         </li>
