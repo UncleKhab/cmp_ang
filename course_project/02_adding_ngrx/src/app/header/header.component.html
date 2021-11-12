@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Recipe Boot</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          routerLink="recipes"
+          *ngIf="isAuthenticated"
+        >
+          Recipes
+        </a>
+        <a
+          class="nav-link"
+          routerLink="auth"
+          routerLinkActive="active"
+          *ngIf="!isAuthenticated"
+        >
+          Authenticate
+        </a>
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          routerLink="shopping-list"
+        >
+          Shopping List
+        </a>
+      </ul>
+      <ul class="navbar-nav" *ngIf="isAuthenticated">
+        <a class="nav-link" style="cursor: pointer" (click)="onLogout()"
+          >Logout</a
+        >
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            (click)="displayDropdown = !displayDropdown"
+          >
+            Dropdown
+          </a>
+          <ul
+            class="dropdown-menu"
+            style="cursor: pointer"
+            aria-labelledby="navbarDropdown"
+            [appDropdown]="displayDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                style="cursor: pointer"
+                (click)="onSaveData()"
+              >
+                Save Data
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="cursor: pointer"
+                (click)="onFetchData()"
+              >
+                Fetch Data
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
