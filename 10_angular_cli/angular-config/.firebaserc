@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "atomic-habits-996ff": {
+      "hosting": {
+        "angular-config": [
+          "atomic-habits-996ff"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "atomic-habits-996ff"
+  }
+}
